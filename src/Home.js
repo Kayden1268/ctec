@@ -9,6 +9,7 @@ const Home = () => {
         .then((response) => response.json())
         .then((data) => {
             setCards(data)
+            console.log(data)
         })
         .catch((error) => {
             console.log(error)
@@ -22,20 +23,22 @@ const Home = () => {
 
 
     return (
-
-        // <div>
-        //     This is the home page!
-        // </div>
-        <>
-        <div>
-            {cards.map((item, index) => (
-                // <div>
-            ))}
-        </div>
-        </>
-        
-        
-    )
+      // <div>
+      //     This is the home page!
+      // </div>
+      <>
+        {cards.map((item) => (
+          <>
+            <div key={item.ID} className="card">
+              <h2>{item.hotelname}</h2>
+              <p>
+                Country: {item.Country}, {item.City}
+              </p>
+            </div>
+          </>
+        ))}
+      </>
+    );
 }
 
 export default Home;
