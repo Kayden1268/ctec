@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 const Home = () => {
-    const [card, setCard] = useState([])
+    const [cards, setCards] = useState([])
 
 
     const getData = async () => {
         await fetch("https://co8xhcw1m7.execute-api.us-east-1.amazonaws.com/default/getItems")
         .then((response) => response.json())
         .then((data) => {
-            
+            setCards(data)
         })
         .catch((error) => {
             console.log(error)
@@ -23,9 +23,18 @@ const Home = () => {
 
     return (
 
+        // <div>
+        //     This is the home page!
+        // </div>
+        <>
         <div>
-            This is the home page!
+            {cards.map((item, index) => (
+                // <div>
+            ))}
         </div>
+        </>
+        
+        
     )
 }
 
